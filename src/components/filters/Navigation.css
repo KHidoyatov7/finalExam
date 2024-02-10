@@ -1,0 +1,71 @@
+/* Navigation.css da tuzatishlar */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px;
+  position: fixed;
+  z-index: 2;  
+  background-color: #202124;
+  box-shadow: #302c2c 0 2px 0;
+  
+}
+
+.logo {
+  width: 200px;
+  height: 30px;
+}
+
+.search-input-container {
+  position: relative;
+  margin: 0 20px;
+  /* flex-grow: 1; Container o'sishi uchun */
+  display: flex; /* Flexbox qo'shish */
+  flex: 1;
+}
+
+.search-input {
+  padding: 16px; /* Paddingni moslashtirish */
+  border-radius: 40px 0 0 40px; /* Faqat chap tomonda radius */
+  border: none;
+  background-color: #2c2f39;
+  color: white;
+  font-size: 20px;
+  width: 58%;
+}
+
+.filter-select {
+  padding: 10px ; /* Paddingni moslashtirish */
+  border: none;
+  background-color: #2c2f39;
+  color: white;
+  font-size: 16px;
+  border-left: 1px solid #ffffff45;
+  border-radius: 0 40px 40px 0; /* Faqat o'ng tomonda radius */
+  /* O'chirilgan margin-left va position */
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 2px solid #9494ff;
+  padding: 15px 30px;
+  max-width: 150px;
+  border-radius: 25px;
+  font-size: 17px;
+  color: #9494ff;
+  background-color: unset;
+  margin-top: 50px;
+  svg {
+      font-size: larger
+  }
+}
