@@ -13,7 +13,7 @@ interface LocationState {
 
 interface SingleFontProps {
   onBack: () => void;
-  font: Font; // Font turini qo'shish
+  font: Font;
 }
 
 const FontInfo = ({ fontName }: { fontName: string }) => {
@@ -48,17 +48,15 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
       const fontIndex = selectedFonts.findIndex((item: { fontName: string; }) => item.fontName === fontName);
     
       if (fontIndex !== -1) {
-        // Font allaqachon mavjud, shuning uchun uning variantlari ro'yxatiga yangi variantni qo'shamiz
-        // Shuningdek, bir xil variantni qayta qo'shib qo'ymaslik uchun tekshiruv qilamiz
         if (!selectedFonts[fontIndex].variants.includes(variant)) {
           selectedFonts[fontIndex].variants.push(variant);
         }
       } else {
-        // Yangi font, uni va uning variantlar ro'yxatini qo'shamiz
         selectedFonts.push({ fontName, variants: [variant] });
       }
     
       localStorage.setItem('selectedFonts', JSON.stringify(selectedFonts));
+      window.dispatchEvent(new Event('localStorageChange'));
     };
     
     
@@ -86,8 +84,8 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
   
   
   const SingleFont = ({ onBack }: SingleFontProps) => {
-    const location = useLocation<LocationState>();
-    const state = location.state;
+    const location = useLocation();
+    const state = location.state as LocationState;
 
     
     
@@ -98,7 +96,6 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
             <h1 className='header__one'>{state.font.family}</h1>
             <div style={{display: 'flex', alignItems: 'center', gap: '40px'}}>
               <button onClick={onBack}><Link to="/">Orqaga</Link></button>
-              {/* Sidebar komponentiga to'g'ri fontName prop sifatida berish */}
               <Sidebar/>
             </div>  
           </div>
@@ -106,7 +103,7 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
         </div>
         <GoogleFontLoader
           fontName={state.font.family}
-          fontCategory={state.font.category} // Agar kerak bo'lsa, to'g'ri kategoriyani berish
+          fontCategory={state.font.category}
           userInput=""
           fontSize={40}
           onClick={() => {}}

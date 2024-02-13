@@ -118,4 +118,4 @@ const FontsDisplay = () => {
   
 };
 
-export { FontsDisplay, GoogleFontLoader  };
+export { FontsDisplay, GoogleFontLoader};

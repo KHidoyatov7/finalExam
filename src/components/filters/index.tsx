@@ -51,7 +51,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange,
         />
         <select value={filter} onChange={handleFilterChange} className="filter-select">
           <option value="">All</option>
-          <option value="sans-serif">sans-serif</option>
+          <option value="sans-serif">sans-serif</option>z
           <option value="display">display</option>
           <option value="serif">serif</option>
           <option value="handwriting">hand writing</option>
