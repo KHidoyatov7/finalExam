@@ -95,7 +95,7 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
           <div className='header__flex'>
             <h1 className='header__one'>{state.font.family}</h1>
             <div style={{display: 'flex', alignItems: 'center', gap: '40px'}}>
-              <button onClick={onBack}><Link to="/">Orqaga</Link></button>
+              <button onClick={onBack}><Link to="/">back to home</Link></button>
               <Sidebar/>
             </div>  
           </div>

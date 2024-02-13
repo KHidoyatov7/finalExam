@@ -102,7 +102,6 @@ export default function SwipeableTemporaryDrawer() {
             </div>
           </div>
           <h4 style={{color: 'white', fontSize: '12px', marginTop: '20px', marginBottom: '20px'}}>Embed code in the &lt;head&gt; of your html</h4>
-          {/* Embed qilish kodini ko'rsatish va nusxalash uchun tugma */}
           <div className='copyy'>
             <code style={{marginBottom: '20px'}}>{embedCode}</code>
             <button style={{padding: '10px 20px', marginBottom: '20px', color: '#6d6dff', border: '1px solid #6d6dff', background: 'transparent', borderRadius: '10px'}} onClick={() => copyEmbedCodeToClipboard(embedCode)} className='btn'>Copy Embed Code</button>
@@ -111,10 +110,9 @@ export default function SwipeableTemporaryDrawer() {
       );
     })
   ) : (
-    // Agar hech qanday font tanlanmagan bo'lsa, xabar chiqarish
-    <div className="no-fonts" style={{}}>
-      <FiAlertCircle style={{}}/>  
-      <h4>Hech qanday fontlar tanlanmagan...</h4>
+    <div className="no-fonts" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', height: '100%'}}>
+      <FiAlertCircle style={{ fontSize: '50px', color: 'white'}}/>  
+      <h4 style={{color: 'white', fontSize: '22px', marginTop: '20px', textAlign: 'center', fontFamily: 'sans-serif'}}>Hech qanday fontlar tanlanmagan...</h4>
     </div>
   )
 }   {/* <List>
