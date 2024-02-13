@@ -34,12 +34,16 @@ export default function SwipeableTemporaryDrawer() {
   };
 
   const [selectedFonts, setSelectedFonts] = React.useState([]);
-  const removeFont = (font: string) => {
-    localStorage.removeItem('selectedFonts');
+  const removeFont = (fontName: string) => {
+    const updatedSelectedFonts = selectedFonts.filter((font: Font) => font.fontName !== fontName);
+    
+    localStorage.setItem('selectedFonts', JSON.stringify(updatedSelectedFonts));
+    
+    setSelectedFonts(updatedSelectedFonts);
     window.dispatchEvent(new Event('localStorageChange'));
-    window.location.reload()
-    console.log(font)
-  }
+    console.log(`${fontName} o'chirildi`);
+}
+
   React.useEffect(() => {
     const handleStorageChange = () => {
       const storedFonts = localStorage.getItem('selectedFonts');
