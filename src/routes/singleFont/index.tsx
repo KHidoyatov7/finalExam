@@ -37,8 +37,19 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
     }, [fontName]);
 
     const parseVariant = (variant: string) => {
-      const weight = variant
-      return { weight };
+      let weight = '400'; // Odatiy qalinlik qiymati
+      let style = 'normal'; // Odatiy uslub
+    
+      if (variant.includes('italic')) {
+        style = 'italic';
+    
+        // 'italic' dan oldingi raqamlarni qalinlik sifatida olish
+        weight = variant.replace('italic', '') || '400'; // Agar variant faqat 'italic' bo'lsa, standart qalinlikni qo'llaymiz
+      } else {
+        weight = variant; // Agar 'italic' bo'lmasa, variant to'g'ridan-to'g'ri qalinlikdir
+      }
+    
+      return { weight, style };
     };
     
     
@@ -69,15 +80,19 @@ const FontInfo = ({ fontName }: { fontName: string }) => {
     
     return (
       <div className='fonto'>
-        {fontVariants.map(variant => {
-          const { weight} = parseVariant(variant);
-          return (
-            <div className='fonto__font-cardo' key={variant} style={{ fontFamily: fontName, fontWeight: weight }}>
-                <span>{weight}</span>
-              <div style={{display: 'flex', justifyContent: 'space-between'}}><p>{`Whereas recognition of the inherent dignity`}</p>  <FiPlus onClick={() => handleAddVariant(variant)} style={{ cursor: 'pointer' }} /></div>
-            </div>
-          );
-        })}
+{fontVariants.map(variant => {
+  const { weight, style } = parseVariant(variant);
+  return (
+    <div className='fonto__font-cardo' key={variant} style={{ fontFamily: fontName, fontWeight: weight, fontStyle: style }}>
+        <span>{variant}</span>
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <p>{`Whereas recognition of the inherent dignity`}</p>
+        <FiPlus onClick={() => handleAddVariant(variant)} style={{ cursor: 'pointer' }} />
+      </div>
+    </div>
+  );
+})}
+
       </div>
     );
   };
