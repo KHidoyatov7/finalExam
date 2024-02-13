@@ -65,7 +65,7 @@ const FontsDisplay = () => {
   useEffect(() => {
     fetch(API_URL)
       .then(response => response.json())
-      .then(data => setFonts(data.items.slice(0, 200)));
+      .then(data => setFonts(data.items));
   }, []);
 
   const filteredFonts = fonts.filter(font => {
