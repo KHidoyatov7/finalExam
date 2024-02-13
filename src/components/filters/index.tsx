@@ -7,7 +7,7 @@ import { HiMiniShoppingBag } from 'react-icons/hi2';
 interface NavigationProps {
   onSearchChange: (newSearchTerm: string) => void;
   onFilterChange: (newFilter: string) => void;
-  onTogglePanel?: () => void; // Qo'shimcha prop sifatida qo'shilgan
+  onTogglePanel?: () => void;
   inputStyle: React.CSSProperties;
 }
 const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange, onTogglePanel, inputStyle }) => {
@@ -31,7 +31,7 @@ const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange,
     setClickedButton(!clickedButton);
     console.log(clickedButton);
     if (onTogglePanel) {
-      onTogglePanel(); // Panelni ko'rsatish/yashirish uchun tashqi komponentdan kelgan funksiyani chaqirish
+      onTogglePanel();
     }
   };  
 

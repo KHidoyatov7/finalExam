@@ -63,7 +63,6 @@ export default function SwipeableTemporaryDrawer() {
     navigator.clipboard.writeText(embedCode)
       .then(() => {
         console.log('Embed kodi muvaffaqiyatli nusxalandi');
-        // Foydalanuvchiga muvaffaqiyatli nusxalanganligi haqida bildirish (masalan, toast notification orqali)
       })
       .catch(err => {
         console.error('Nusxalashda xatolik:', err);
@@ -84,7 +83,6 @@ export default function SwipeableTemporaryDrawer() {
 {
   selectedFonts.length > 0 ? (
     selectedFonts.map((font: Font) => {
-      // Embed qilish linkini yaratish
       const embedCode = `
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,7 +142,6 @@ export default function SwipeableTemporaryDrawer() {
   );
   return (
     <div>
-      {/* Button ichida endi HiOutlineShoppingBag ikonkasi ishlatilmoqda */}
       <Button onClick={toggleDrawer(true)}>
         <HiOutlineShoppingBag />
       </Button>
