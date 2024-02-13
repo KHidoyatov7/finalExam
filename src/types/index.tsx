@@ -1,11 +1,13 @@
 export type Font = {
     family: string;
-    category: string;
+    category: string;    
+    variants: string[];
+    fontName: string
   }
   interface NavigationProps {
     onSearchChange: (newSearchTerm: string) => void;
     onFilterChange: (newFilter: string) => void;
-    onTogglePanel?: () => void; // Qo'shimcha prop sifatida qo'shilgan
+    onTogglePanel?: () => void;
   }
   
   export default NavigationProps

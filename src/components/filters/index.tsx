@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import logo from '../../assets/svg.png';
 import './Navigation.css';
 import { HiAdjustments } from 'react-icons/hi';
+import { HiMiniShoppingBag } from 'react-icons/hi2';
 
 interface NavigationProps {
   onSearchChange: (newSearchTerm: string) => void;
   onFilterChange: (newFilter: string) => void;
   onTogglePanel?: () => void; // Qo'shimcha prop sifatida qo'shilgan
+  inputStyle: React.CSSProperties;
 }
-const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange, onTogglePanel }) => {
+const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange, onTogglePanel, inputStyle }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [filter, setFilter] = useState<string>('');
   const [clickedButton, setClickedButton] = useState(false);
@@ -38,8 +40,9 @@ const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange,
     <div className='container'>
     <div className="navigation">
       <img className="logo" src={logo} alt="Logo" />
-      <div className="search-input-container">
+      <div className="search-input-container" style={inputStyle}>
         <input
+        style={inputStyle}
           type="text"
           placeholder="Search fonts"
           value={searchTerm}
@@ -52,8 +55,10 @@ const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange,
           <option value="display">display</option>
           <option value="serif">serif</option>
           <option value="handwriting">hand writing</option>
+          <option value="monospace">monospace</option>
         </select>
       </div>
+      <HiMiniShoppingBag />
     </div>
     <button className='filter' onClick={handleTransform}><HiAdjustments /> Filters</button>
   </div>
@@ -62,3 +67,4 @@ const Navigation: React.FC<NavigationProps> = ({ onSearchChange, onFilterChange,
 };
 
 export default Navigation;
+export type { NavigationProps };

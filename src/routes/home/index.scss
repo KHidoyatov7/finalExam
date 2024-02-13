@@ -1,8 +1,12 @@
 .font {
     display: flex;
     justify-content: center;
-    max-height: 100vh;
-    transition: transform 0.4s ease-out;
+    max-height: 100vh;  
+    max-width: 97vw;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    transition: 0.5s ease-out;
     .font-card {
         display: flex;
         flex-direction: column;
@@ -13,12 +17,15 @@
         width: 100%;
         cursor: pointer;
         overflow-x: hidden;
+        transition: 0.5s ease-out;
+        margin-left: 60px;
 
         .whereas {
-            font-size: 50px;
+            font-size: 40px;
             white-space: nowrap;
             overflow-x: hidden;
             position: relative;
+            transition: 0.5s ease-out;
 
             .fade-out {
                 position: absolute;
@@ -28,6 +35,7 @@
                 height: 100%;
                 background: #202124;
                 background: linear-gradient(90deg, rgba(32, 33, 36, 0.633578431372549) 0%, rgba(32, 33, 36, 0.9697128851540616) 47%);
+                transition: 0.5s ease-out;
             }
         }
 
@@ -53,6 +61,7 @@
     .font-card:hover {
         border: 0px;
         background-color: #ffffff0f;
+        transition: 0.5s ease-out;
 
         .fade-out {
             background: rgb(32, 33, 36);
@@ -79,7 +88,7 @@
 
 .home {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     gap: 50px;
     width: 100%;
     max-height: 100vh;
@@ -121,7 +130,7 @@
         display: none;
         flex-direction: column;
         padding: 50px 30px 0 30px;
-        background-color: #262729;
+        background-color: #2d2e31;
         gap: 50px;
         height: 100vh;
         transition: transform 0.3s ease-out;
@@ -135,17 +144,28 @@
             }
             h2 {
                 color: white;
-                font-size: 20px;
+                font-size: 17px;
                 font-family: sans-serif;
             }
         }
         textarea {
             font-family: sans-serif;
-            width: 300px;
+            width: 250px;
             height: 150px;
             border-radius: 20px;
             padding: 10px;
             resize: none;   
+            background-color: #404144;
+            font-size: 20px;
+            color: white;
+            border: none;
+        }
+        label {
+            font-size: 20px;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: space-between;
         }
     }
 
